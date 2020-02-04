@@ -1,0 +1,14 @@
+name: Scan
+on: [push, pull_request]
+jobs:
+  scan:
+    name: TrivyScan
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Login
+      run: docker login -u teppei -p password aquasec.ecr.amazonaws.com
+    - name: Scan
+      uses: docker://aquasec/trivy
+      with:
+        args: --severity CRITICAL --no-progress ecr.amazonaws.com/aquasec/someimage:latest
