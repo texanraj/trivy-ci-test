@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Login
-      run: docker login -u texanraj -p password aquasec.ecr.amazonaws.com
+      run: docker login -u texanraj -p password Sparky1331!
     - name: Scan
       uses: docker://aquasec/trivy
       with:
