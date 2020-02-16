@@ -6,8 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Login
-      run: docker login -u texanraj -p <password>
+    - name: Login to GitHub Docker Registry
+      run: docker login docker.pkg.github.com --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+        env:
+          DOCKER_USERNAME: ${{ secrets.GITHUB_DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_DOCKER_PASSWORD }}
+#    - name: Login
+#      run: docker login -u texanraj -p <password>
     - name: Scan
       uses: docker://aquasec/trivy
       with:
