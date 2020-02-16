@@ -11,7 +11,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.GITHUB_DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.GITHUB_DOCKER_PASSWORD }}
-#    - name: Login
+#    - name: Login (commented)
 #      run: docker login -u texanraj -p <password>
     - name: Scan
       uses: docker://aquasec/trivy
