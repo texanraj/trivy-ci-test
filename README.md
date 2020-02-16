@@ -1,1 +1,1 @@
-# trivy-ci-test
+# SCAN-WITH-TRIVY
